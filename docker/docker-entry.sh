@@ -1,6 +1,7 @@
 #!/bin/bash
 
-RUN_DAEMON="${DBMAIL_DAEMON:=/usr/local/sbin/dbmail-imapd}"
+DAEMON_PATH="${DBMAIL_DAEMON_PATH:=/usr/local/sbin}"
+RUN_DAEMON="${DBMAIL_DAEMON:=dbmail-imapd}"
 WITH_ARGS="${DBMAIL_ARGS:=-D -v}"
 
-$RUN_DAEMON $WITH_ARGS
+$DBMAIL_DAEMON_PATH/$RUN_DAEMON $WITH_ARGS

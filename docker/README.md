@@ -32,4 +32,8 @@ The image is based on Ubuntu Jammy and is currently about 150Mb.
 
 Create and run the container with the docker cli:
 
+    # dbmail-imapd (default)
     docker run -p 143:143 -p 993:993 dbmail:latest
+
+    # dbmail-lmtpd
+    docker run -p 24:24 -e DBMAIL_DAEMON=dbmail-lmtpd dbmail:latest
