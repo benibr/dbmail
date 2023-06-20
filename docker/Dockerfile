@@ -26,7 +26,9 @@ COPY . /dbmail
 
 WORKDIR /dbmail
 
-RUN ./configure --with-ldap=/usr
+RUN ./configure \
+      --with-ldap=/usr \
+      --with-sieve=/usr
 RUN make
 RUN make install
 
@@ -45,8 +47,7 @@ RUN apt update && \
     libmhash2 libevent-2.1-7 libevent-pthreads-2.1-7 libssl3
 
 COPY --from=build /usr/local/sbin/* /usr/local/sbin/
-COPY --from=build /usr/local/lib/dbmail/libdbmail.so.0 /usr/local/lib/dbmail/
-COPY --from=build /usr/local/lib/dbmail/libauth_ldap.so /usr/local/lib/dbmail/
+COPY --from=build /usr/local/lib/dbmail/* /usr/local/lib/dbmail/
 
 COPY docker/dbmail.conf /usr/local/etc/
 
