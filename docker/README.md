@@ -6,7 +6,10 @@ This docker image is only for dbmail 3.3+
 
 ## Configuration
 
-Configuration is currently only available in dbmail.conf, so copy dbmail.conf to docker/dbmail.conf and edit with your configuration. TLS is not included in this version but is easy to add, simply add your certificates in the DBMail container (copy your ca, cert and key into docker/tls/, amend the tls_cafile, tls_cert and tls_key entries in dbmail.conf, then add the following to the Dockerfile.
+Configuration is currently only available in dbmail.conf, so copy dbmail.conf to docker/dbmail.conf and edit with your configuration.
+TLS is not included in this version but is easy to add, simply add your certificates in the DBMail container 
+(copy your ca, cert and key into docker/tls/, amend the `tls_cafile`, `tls_cert` and `tls_key` entries in dbmail.conf,
+then add the following to the Dockerfile.
 
     COPY docker/tls/* /usr/local/etc/"
 
@@ -23,7 +26,7 @@ To create the dbmail image use the docker cli as follows:
 
     docker image build --file docker/Dockerfile --tag dbmail:latest .
 
-The image is based on Deban Jammy and is currently about 180Mb.
+The image is based on Ubuntu Jammy and is currently about 180Mb.
 
 ## Run
 
