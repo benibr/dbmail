@@ -11,8 +11,14 @@ LABEL org.opencontainers.image.authors="ahicks@p-o.co.uk" \
       org.opencontainers.image.description="This image contains everything to build dbmail"
 
 RUN apt update && \
-    apt install -y build-essential libgmime-3.0-dev libzdb-dev libldap2-dev \
-    libmhash-dev libevent-dev libssl-dev
+    apt install -y build-essential \
+                    libgmime-3.0-dev \
+                    libzdb-dev \
+                    libldap2-dev \
+                    libmhash-dev \
+                    libevent-dev \
+                    libssl-dev \
+                    libsieve2-dev
 
 FROM build_base AS build
 LABEL org.opencontainers.image.authors="ahicks@p-o.co.uk" \
@@ -43,8 +49,15 @@ LABEL org.opencontainers.image.authors="ahicks@p-o.co.uk" \
 WORKDIR /
 
 RUN apt update && \
-    apt install -y libgmime-3.0-0 libzdb11 libldap-common \
-    libmhash2 libevent-2.1-7 libevent-pthreads-2.1-7 libssl3
+    apt install -y libgmime-3.0-0 \
+                    libzdb11 \
+                    libldap-common \
+                    libmhash2 libevent-2.1-7 \
+                    libevent-pthreads-2.1-7 \
+                    libssl3 \
+                    libsieve2-1 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY --from=build /usr/local/sbin/* /usr/local/sbin/
 COPY --from=build /usr/local/lib/dbmail/* /usr/local/lib/dbmail/

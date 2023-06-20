@@ -26,7 +26,7 @@ To create the dbmail image use the docker cli as follows:
 
     docker image build --file docker/Dockerfile --tag dbmail:latest .
 
-The image is based on Ubuntu Jammy and is currently about 180Mb.
+The image is based on Ubuntu Jammy and is currently about 150Mb.
 
 ## Run
 
