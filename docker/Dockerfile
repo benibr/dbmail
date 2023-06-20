@@ -68,7 +68,17 @@ COPY --chown=nobody:nogroup docker/logs/dbmail-imapd.log /var/log/dbmail/
 COPY --chown=nobody:nogroup docker/logs/dbmail-imapd.err /var/log/dbmail/
 COPY --chown=nobody:nogroup docker/run/dbmail-imapd.pid /var/run/dbmail/
 
+# dbmail-imapd
 EXPOSE 143/tcp
 EXPOSE 993/tcp
+
+# dbmail-timsieved
+EXPOSE 2000/tcp
+
+# dbmail-pop3d
+EXPOSE 110/tcp
+
+# dbmail-lmtpd
+EXPOSE 24/tcp
 
 CMD ["/usr/local/sbin/dbmail-imapd", "-D", "-v"]
