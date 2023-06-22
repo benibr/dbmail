@@ -62,7 +62,7 @@ RUN apt update && \
 COPY --from=build /usr/local/sbin/* /usr/local/sbin/
 COPY --from=build /usr/local/lib/dbmail/* /usr/local/lib/dbmail/
 
-COPY docker/dbmail.conf /usr/local/etc/
+COPY dbmail.conf /usr/local/etc/
 
 COPY --chown=nobody:nogroup docker/logs/dbmail-imapd.log /var/log/dbmail/
 COPY --chown=nobody:nogroup docker/logs/dbmail-imapd.err /var/log/dbmail/

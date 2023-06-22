@@ -6,7 +6,8 @@ This docker image is only for dbmail 3.3+
 
 ## Configuration
 
-Configuration is currently only available in dbmail.conf, so copy dbmail.conf to docker/dbmail.conf and edit with your configuration.
+Configuration is currently only available in dbmail.conf, so edit it with your configuration before building the image 
+or mount a existing config later into the container.
 TLS is not included in this version but is easy to add, simply add your certificates in the DBMail container 
 (copy your ca, cert and key into docker/tls/, amend the `tls_cafile`, `tls_cert` and `tls_key` entries in dbmail.conf,
 then add the following to the Dockerfile.
