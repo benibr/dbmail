@@ -55,6 +55,7 @@ COPY --from=build /usr/local/lib/dbmail/* /usr/local/lib/dbmail/
 
 RUN mkdir /var/run/dbmail
 RUN mkdir /var/log/dbmail
+RUN chown dbmail: -R /var/run/dbmail /var/log/dbmail
 RUN useradd dbmail
 
 EXPOSE 143/tcp
