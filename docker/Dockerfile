@@ -42,7 +42,7 @@ WORKDIR /
 
 RUN apt update && \
     apt install -y libgmime-2.6 libzdb9 libldap-2.4-2 \
-    libmhash2 libevent-1.4-2 libevent-2.0 libevent-pthreads-2.0-5 libssl1.0.0 libsieve2-1 strace
+    libmhash2 libevent-1.4-2 libevent-2.0 libevent-pthreads-2.0-5 libssl1.0.0 libsieve2-1 strace ssmtp
 
 COPY --from=build /usr/local/sbin/* /usr/local/sbin/
 COPY --from=build /usr/local/lib/dbmail/* /usr/local/lib/dbmail/
